@@ -20,13 +20,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v3
+    - name: Grant execute permission for gradlew
+      run: chmod +x AljazeeraAndroid/gradlew
 
     - name: Build Debug APK
       run: |
         cd AljazeeraAndroid
-        chmod +x gradlew
         ./gradlew assembleDebug
 
     - name: Upload APK Artifact
